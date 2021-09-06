@@ -34,19 +34,33 @@
 <script>
 
 var i=1;
+var z="000";
 
 function next(){
-  i++;
- // alert(i);
-  document.getElementById("imageid").src="res/000" + i + ".jpg";
-  document.getElementById("audioid").src="res/000" + i + ".mp3";
+  if(i<19) i++;
+  if(i>9) z="00"; else z="000";
+  console.log(i);
+  document.getElementById("imageid").src="res/" + z + i + ".jpg";
+  document.getElementById("audioid").src="res/" + z + i + ".mp3";
   }
 
 function prev(){
+  if(i>9) z="00"; else z="000";
   i--;
-  document.getElementById("imageid").src="res/000" + i + ".jpg";
-  document.getElementById("audioid").src="res/000" + i + ".mp3";
+  document.getElementById("imageid").src="res/" + z + i + ".jpg";
+  document.getElementById("audioid").src="res/" + z + i + ".mp3";
   }
+
+document.addEventListener("keydown",event => {
+  if (event.key==="ArrowRight"){
+      next();
+    }
+    
+  if (event.key==="ArrowLeft"){
+      prev();
+    }
+  
+  });
 
 </script>
 
